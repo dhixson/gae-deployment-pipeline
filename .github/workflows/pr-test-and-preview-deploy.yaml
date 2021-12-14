@@ -20,11 +20,10 @@ jobs:
       uses: google-github-actions/auth@v0
       with:
         workload_identity_provider: projects/807756430922/locations/global/workloadIdentityPools/deployment-access
-        service_account: githubactions@nice-tiger-335017.iam.gserviceaccount.com
+        service_account: githubactions2@nice-tiger-335017.iam.gserviceaccount.com
 
     - name: Deploy
       uses: google-github-actions/deploy-appengine@v0.5.0
       with:
-        deliverables: app.yaml
         version: $BUILD_ID
         promote: false
