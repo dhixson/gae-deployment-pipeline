@@ -6,6 +6,9 @@ jobs:
   build:
     name: Test and Deploy PR to GAE version
     runs-on: ubuntu-18.04
+    permissions:
+      contents: read
+      id-token: write
     env:
       BUILD_TAG: pr-${{ github.event.number }}
       APP_NAME: pipeline-test-app
