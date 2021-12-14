@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "lib": ["es2020", "dom", "dom.iterable"],
+        "target": "es2019",
+        "declaration": true,
+        "sourceMap": true,
+        "module": "commonjs",
+        "outDir": "dist",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "esModuleInterop": true
+    },
+    "typedocOptions": {
+        "entryPoints": ["src"],
+        "out": "typedoc/"
+    },
+    "include": ["src", "./ormconfig.ts"],
+    "exclude": ["src/node_modules", "**/*.test.ts", "**/*.spec.ts"]
+}

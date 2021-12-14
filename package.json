@@ -1,0 +1,34 @@
+{
+  "name": "gae-deployment-pipeline",
+  "version": "1.0.0",
+  "description": "POC for GAE pipeline",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./node_modules/.bin/tsc",
+    "start": "node ./dist/index.js",
+    "gcp-build": "tsc -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhixson/gae-deployment-pipeline.git"
+  },
+  "keywords": [
+    "google-app-engine",
+    "pipeline",
+    "CICD"
+  ],
+  "author": "Dane Hixson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dhixson/gae-deployment-pipeline/issues"
+  },
+  "homepage": "https://github.com/dhixson/gae-deployment-pipeline#readme",
+  "dependencies": {
+    "fastify": "^3.24.1",
+    "typescript": "^4.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.12"
+  }
+}
