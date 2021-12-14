@@ -8,7 +8,7 @@ const server = fastify({
 });
 
 server.get('/', (request, reply) => {
-    reply.send({ hello: 'world2' });
+    reply.send({ hello: 'world' });
 });
 
 server.listen(port, function (err, address) {
@@ -17,4 +17,4 @@ server.listen(port, function (err, address) {
         process.exit(1)
     }
     console.log(`Server listening on ${address}`)
-})interface
+})
