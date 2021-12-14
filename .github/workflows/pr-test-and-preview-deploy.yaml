@@ -22,6 +22,9 @@ jobs:
         workload_identity_provider: projects/807756430922/locations/global/workloadIdentityPools/deployment-access
         service_account: githubactions2@nice-tiger-335017.iam.gserviceaccount.com
 
+    - name: Set up Google Cloud SDK
+      uses: google-github-actions/setup-gcloud@v0.3.0
+
     - name: Deploy
       uses: google-github-actions/deploy-appengine@v0.5.0
       with:
