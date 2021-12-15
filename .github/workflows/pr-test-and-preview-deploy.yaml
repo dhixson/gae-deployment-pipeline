@@ -37,3 +37,15 @@ jobs:
       with:
         version: ${{ env.BUILD_TAG }}
         promote: false
+
+    - name: e2e Tests
+      env:
+        BASE_URL: ${{ steps.Deploy.output.url }}
+      run: npm run test:e2e
+
+    - name: Place a comment with environment URL
+      if: ${{ github.event.pull_request.action =='opened' }}
+      uses: thollander/actions-comment-pull-request@v1
+      with:
+        message: 'Preview URL: ${{ steps.Deploy.output.url }}'
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
