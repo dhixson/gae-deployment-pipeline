@@ -4,10 +4,16 @@
   "description": "POC for GAE pipeline",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run lint && npm run prettier:check && npm run test:unit",
+    "test:unit": "jest --config ./jest.config.js /tests/unit",
+    "test:e2e": "jest --config ./jest.config.js /tests/e2e",
     "build": "./node_modules/.bin/tsc",
     "start": "node ./dist/index.js",
-    "gcp-build": "tsc -p ."
+    "gcp-build": "tsc -p .",
+    "lint": "eslint --config ./.eslintrc \"src/**/*.ts\" \"tests/**/*.ts\"",
+    "lint:fix": "eslint --fix --config ./.eslintrc \"src/**/*.ts\" \"tests/**/*.ts\"",
+    "prettier:format": "prettier --config ./.prettierrc --write \"src/**/*.ts\" \"tests/**/*.ts\"",
+    "prettier:check": "prettier --config ./.prettierrc --check \"src/**/*.ts\" \"tests/**/*.ts\""
   },
   "repository": {
     "type": "git",
@@ -29,6 +35,13 @@
     "typescript": "^4.5.4"
   },
   "devDependencies": {
-    "@types/node": "^16.11.12"
+    "@types/jest": "^27.0.3",
+    "@types/node": "^16.11.12",
+    "@typescript-eslint/eslint-plugin": "^5.7.0",
+    "@typescript-eslint/parser": "^5.7.0",
+    "eslint": "^8.4.1",
+    "jest": "^27.4.5",
+    "prettier": "^2.5.1",
+    "ts-jest": "^27.1.1"
   }
 }
