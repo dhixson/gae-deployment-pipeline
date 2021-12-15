@@ -16,6 +16,14 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v2
 
+    - name: Install npm Libraries
+      run: |
+        npm install
+
+    - name: Run Pre-deploy Tests
+      run: |
+        npm test
+
     - name: Authenticate to Google App Engine
       uses: google-github-actions/auth@v0
       with:

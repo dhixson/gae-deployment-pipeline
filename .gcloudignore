@@ -4,3 +4,7 @@
 node_modules/
 scripts
 dist
+.prettier*
+.jest.config.js
+.eslintrc
+tests
