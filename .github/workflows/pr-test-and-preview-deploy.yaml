@@ -38,6 +38,11 @@ jobs:
         version: ${{ env.BUILD_TAG }}
         promote: false
 
+    - name: debug deploy outputs
+      env: 
+        DEPLOY_CONTEXT: ${{ toJson(steps.deploy) }}
+      run: echo "$DEPLOY_CONTEXT"
+
     - name: call e2e tests
       env:
         BASE_URL: ${{ steps.deploy.outputs.url }}
