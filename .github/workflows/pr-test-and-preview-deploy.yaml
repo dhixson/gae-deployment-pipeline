@@ -9,6 +9,7 @@ jobs:
     permissions:
       contents: read
       id-token: write
+      pull-requests: write
     env:
       BUILD_TAG: pr-${{ github.event.number }}
       APP_NAME: pipeline-test-app
