@@ -33,19 +33,25 @@ jobs:
       uses: google-github-actions/setup-gcloud@v0.3.0
 
     - name: Deploy
+      id: deploy
       uses: google-github-actions/deploy-appengine@v0.5.0
       with:
         version: ${{ env.BUILD_TAG }}
         promote: false
 
-    - name: e2e Tests
+    - name: debug deploy outputs
+      env: 
+        DEPLOY_CONTEXT: ${{ toJson(steps.deploy.outputs) }}
+      run: echo "$DEPLOY_CONTEXT"
+
+    - name: call e2e tests
       env:
-        BASE_URL: ${{ steps.Deploy.output.url }}
+        BASE_URL: ${{ steps.deploy.outputs.url }}
       run: npm run test:e2e
 
     - name: Place a comment with environment URL
-      if: ${{ github.event.pull_request.action =='opened' }}
+      if: ${{ github.event.action =='opened' }}
       uses: thollander/actions-comment-pull-request@v1
       with:
-        message: 'Preview URL: ${{ steps.Deploy.output.url }}'
+        message: 'Preview URL: ${{ steps.Deploy.outputs.url }}'
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
