@@ -8,7 +8,7 @@ const server = fastify({
 });
 
 server.get("/", (request, reply) => {
-  reply.send({ hello: "world!" });
+  reply.send({ hello: "universe" });
 });
 
 server.listen(port, function (err, address) {
